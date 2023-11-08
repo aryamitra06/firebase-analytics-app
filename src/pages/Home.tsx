@@ -29,18 +29,18 @@ const Home: React.FC = () => {
   //   });
   // }
 
-  // const setUserId = () => {
-  //   FirebaseAnalytics.setUserId({
-  //     userId: 'john_doe_123',
-  //   });
-  // };
+  const setUserId = async () => {
+    await FirebaseAnalytics.setUserId({
+      userId: 'john_doe_123',
+    });
+  };
 
-  // const setUserProperty = () => {
-  //   FirebaseAnalytics.setUserProperty({
-  //     name: "favorite_food",
-  //     value: "pizza",
-  //   });
-  // };
+  const setUserProperty = () => {
+    FirebaseAnalytics.setUserProperty({
+      name: "user_id",
+      value: "abc123",
+    });
+  };
 
   // const getAppInstanceId = async () => {
   //   const response = await FirebaseAnalytics.getAppInstanceId();
@@ -74,10 +74,8 @@ const Home: React.FC = () => {
       <IonContent fullscreen>
         <IonButton onClick={init}>Init Firebase</IonButton>
         <IonButton onClick={enable}>Enable Analytics</IonButton>
-        {/* <IonButton onClick={disable}>Disable Analytics</IonButton>
         <IonButton onClick={setUserId}>Set User ID</IonButton>
         <IonButton onClick={setUserProperty}>Set User Property</IonButton>
-        <IonButton onClick={getAppInstanceId}>Get App Instance Id</IonButton> */}
         <IonButton onClick={logEvent}>Log Event</IonButton>
         {/* <IonButton onClick={setScreenName}>Set Screen</IonButton> */}
       </IonContent>

@@ -38,7 +38,15 @@ const App: React.FC = () => {
     // });
   }
 
-
+  const firebaseConfig = {
+    apiKey: "AIzaSyBpUGUXxiSDx8p8PLosBr9ETbOoakukvc8",
+    authDomain: "cme-one-testing.firebaseapp.com",
+    projectId: "cme-one-testing",
+    storageBucket: "cme-one-testing.appspot.com",
+    messagingSenderId: "682607174840",
+    appId: "1:682607174840:web:7d98a7e0a96d4c7989804d",
+    measurementId: "G-1DMQ1YZ0R3"
+  };
 
   // useEffect(() => {
   //   if (Capacitor.getPlatform() === 'web') {
