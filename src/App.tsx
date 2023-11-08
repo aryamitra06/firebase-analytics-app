@@ -2,6 +2,11 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
+import { useEffect } from 'react';
+import { Capacitor } from '@capacitor/core';
+import { FirebaseAnalytics } from '@capacitor-community/firebase-analytics';
+// Init for the web
+import "@capacitor-community/firebase-analytics";
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -24,19 +29,42 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+
+  const init = () => {
+
+    // FirebaseAnalytics.setCollectionEnabled({
+    //   enabled: true,
+    // });
+  }
+
+
+
+  // useEffect(() => {
+  //   if (Capacitor.getPlatform() === 'web') {
+  //     FirebaseAnalytics.initializeFirebase({
+  //       apiKey: "AIzaSyAM3BC7Cxh6BpSM1obB_7g2zQDvMmXNLrU",
+  //       authDomain: "fir-analytics-7a28d.firebaseapp.com",
+  //       projectId: "fir-analytics-7a28d",
+  //       storageBucket: "fir-analytics-7a28d.appspot.com",
+  //       messagingSenderId: "318551405485",
+  //       appId: "1:318551405485:web:30eae6652d468863e42724",
+  //       measurementId: "G-H0CVB5QCMT"
+  //     });
+  //   }
+  // }, []);
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  );
+}
 
 export default App;
